@@ -1,0 +1,10 @@
+.title-section {
+  padding: calc(var(--size-grid-base) * 4);
+
+  background-color: var(--color-accent-dark);
+  color: var(--color-accent-light);
+}
+
+.title-section--headline {
+  font-size: var(--size-text-large);
+}

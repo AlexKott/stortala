@@ -4,6 +4,9 @@
   --color-dark: rgb(0, 0, 0);
   --color-accent-light: rgb(255, 204, 194);
   --color-accent-dark: rgb(71, 0, 30);
+
+  --size-grid-base: 20px;
+  --size-text-large: 58px;
 }
 
 * {
@@ -14,6 +17,7 @@ body {
   margin: 0;
 
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -21,6 +25,7 @@ body {
   color: var(--color-dark);
 }
 
-.root {
-  width: 100%;
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 700;
 }
