@@ -1,5 +1,9 @@
 .title-section {
-  padding: calc(var(--size-grid-base) * 4);
+  display: flex;
+  align-items: center;
+
+  height: calc(var(--size-grid-base) * 6);
+  padding: 0 calc(var(--size-grid-base) * 6);
 
   background-color: var(--color-accent-dark);
   color: var(--color-accent-light);

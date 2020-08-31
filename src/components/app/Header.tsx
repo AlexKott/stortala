@@ -9,8 +9,8 @@ const Header = () => (
     <img
       alt='logo'
       className='header--logo'
-      height="60"
-      width="170"
+      height="50"
+      width="142"
       src={logo}
     />
   </header>

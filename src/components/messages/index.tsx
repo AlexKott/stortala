@@ -1,7 +1,11 @@
 import React from 'react';
 
+import MessageForm from './MessageForm';
+
 const Messages = () => (
-  <div />
+  <>
+    <MessageForm />
+  </>
 );
 
 export default Messages;

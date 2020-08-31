@@ -3,7 +3,7 @@
   align-items: center;
 
   height: calc(var(--size-grid-base) * 4);
-  margin: 0 calc(var(--size-grid-base) * 4);
+  margin: 0 calc(var(--size-grid-base) * 6);
 
   background-color: var(--color-light);
 }
