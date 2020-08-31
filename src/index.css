@@ -6,12 +6,14 @@
   --color-accent-light: rgb(255, 204, 194);
   --color-accent-dark: rgb(71, 0, 30);
 
+  --size-gap: 4px;
   --size-grid-base: 20px;
   --size-max-width: 320px;
-  --size-text-regular: 20px;
-  --size-text-large: 58px;
+  --size-text-small: 14px;
+  --size-text-regular: 18px;
+  --size-text-large: 36px;
   --size-border-width: 2px;
-  --size-border-radius: 60px;
+  --size-border-radius: 4px;
 }
 
 * {
@@ -27,11 +29,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: var(--color-light);
+  background-color: var(--color-brand);
   color: var(--color-dark);
+  background-image: url(./images/bubble.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150vh;
+  background-attachment: fixed;
 }
 
 h1, h2, h3 {
   margin: 0;
   font-weight: 700;
+}
+
+p {
+  margin: 0;
 }

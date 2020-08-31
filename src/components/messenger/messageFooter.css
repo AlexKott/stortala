@@ -1,0 +1,26 @@
+.message-footer {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(var(--size-gap) * -2);
+  right: calc(var(--size-gap));
+  display: flex;
+}
+
+.message-footer--button {
+  display: block;
+  width: calc(var(--size-grid-base) + var(--size-gap) * 2);
+  height: calc(var(--size-grid-base) + var(--size-gap) * 2);
+
+  background-color: var(--color-brand);
+
+  border: var(--size-border-width) solid var(--color-light);
+  box-sizing: border-box;
+  border-radius: 50%;
+  outline: 0;
+
+  color: var(--color-light);
+}
+
+.message-footer--button:not(:last-child) {
+  margin-right: var(--size-gap);
+}

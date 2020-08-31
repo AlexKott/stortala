@@ -1,0 +1,6 @@
+.messenger {
+  width: calc(100vw - (var(--size-grid-base) ));
+  min-height: 90vh;
+  margin: 0 auto;
+  padding-top: calc(var(--size-grid-base) * 4);
+}

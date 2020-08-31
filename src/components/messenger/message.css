@@ -1,0 +1,18 @@
+.message {
+  position: relative;
+  border: var(--size-border-width) solid var(--color-accent-light);
+  border-radius: var(--size-border-radius);
+}
+
+.message.is-reply {
+  border-top: 0;
+  margin-left: calc(var(--size-grid-base) * 3);
+  margin-top: -2px;
+}
+
+.message--content {
+  padding: var(--size-grid-base);
+  padding-left: calc(var(--size-grid-base) * 2);
+
+  background-color: var(--color-light);
+}

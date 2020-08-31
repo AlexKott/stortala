@@ -1,0 +1,13 @@
+.feed {
+  width: 50vw;
+  min-width: var(--size-max-width);
+
+  margin: calc(var(--size-grid-base) * 2) auto;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.feed--item:not(:last-child) {
+  margin-bottom: var(--size-grid-base);
+}
