@@ -9,7 +9,7 @@ import './index.css';
 const messages: DisplayMessage[] = [
   {
     id: 1,
-    created: 5000,
+    created: 1598957195445,
     author: {
       id: 1,
       name: 'Tom',
@@ -19,7 +19,7 @@ const messages: DisplayMessage[] = [
     replies: [
       {
         id: 3,
-        created: 6000,
+        created: 1598957015445,
         author: {
           id: 2,
           name: 'Bob',
@@ -31,7 +31,7 @@ const messages: DisplayMessage[] = [
   },
   {
     id: 2,
-    created: 4000,
+    created: 1598736185445,
     author: {
       id: 2,
       name: 'Bob',

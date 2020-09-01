@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns';
 
 import './header.css';
 
@@ -16,7 +17,7 @@ const Header = ({
         className='message-header--author'
         style={{ backgroundImage: `url(${author.image})` }}
       />
-      {author.name} at {created}
+      {author.name} – {formatDistanceToNow(created)} ago
     </header>
   );
 

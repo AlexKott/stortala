@@ -8,8 +8,8 @@ import Header from './Header';
 const App = () => (
   <>
     <Header />
-    <Login />
-    {/* <Messenger /> */}
+    {/* <Login /> */}
+    <Messenger />
   </>
 );
 
