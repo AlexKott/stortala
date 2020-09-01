@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { createDisplayMessage } from 'utils/messages';
+import * as utils from 'utils';
 
 import { getAuthors } from './authors';
 import { getLogin } from './login';
@@ -23,12 +23,14 @@ export const getDisplayMessages = createSelector(
       .filter(message => message.parentId === null)
       .map((message): DisplayMessage => ({
 
-        ...createDisplayMessage(message, authors),
+        ...utils.createDisplayMessage(message, authors),
         replies: messageList
           .filter(m => m.parentId === message.id)
-          .map(m => ({ ...createDisplayMessage(m, authors) })),
+          .map(m => ({ ...utils.createDisplayMessage(m, authors) }))
+          .sort(utils.sortByCreation(true)),
 
       }))
+      .sort(utils.sortByCreation(false));
   });
 
 export const getLoggedInUser = createSelector(

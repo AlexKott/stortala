@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import combinedReducer from 'reducers';
+import * as middlewareModules from 'middleware';
 import App from 'components/App';
 
 import './index.css';
 
+const customMiddleware = Object.values(middlewareModules);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   combinedReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeEnhancers(applyMiddleware(...customMiddleware)),
 );
 
 ReactDOM.render(

@@ -23,14 +23,26 @@ const initialState: MessagesState = {
 };
 
 export default (state: MessagesState = initialState, action: MessageActionType): MessagesState => {
-  if (action.type === 'messages/DELETE') {
-    const stateCopy = { ...state };
-    delete stateCopy[action.messageId];
+  switch (action.type) {
+    case 'messages/DELETE': {
+      const stateCopy = { ...state };
+      delete stateCopy[action.payload.messageId];
 
-    return stateCopy;
+      return stateCopy;
+    }
+
+    case 'messages/ADD': {
+      return {
+        ...state,
+        [action.payload.message.id]: {
+          ...action.payload.message,
+        },
+      };
+    }
+
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export const getMessages = (state: State): MessagesState => state.messages;
