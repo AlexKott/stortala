@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import { createDisplayMessage } from 'utils/messages';
 
 import { getAuthors } from './authors';
+import { getLogin } from './login';
 import { getMessages } from './messages';
 
 export const getAuthorList = createSelector(
@@ -29,3 +30,10 @@ export const getDisplayMessages = createSelector(
 
       }))
   });
+
+export const getLoggedInUser = createSelector(
+  [
+    getLogin,
+    getAuthors,
+  ], (login, authors) => login ? authors[login] : null
+);

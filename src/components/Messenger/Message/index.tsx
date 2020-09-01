@@ -1,5 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+
+import * as selectors from 'reducers/selectors';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -15,6 +18,15 @@ type PropsFromState = {
   isEditing: boolean
   isOwn: boolean
 }
+
+const mapStateToProps = (state: State, props: OwnProps): PropsFromState => {
+  const user = selectors.getLoggedInUser(state);
+
+  return {
+    isEditing: false,
+    isOwn: user?.id === props.message.author.id,
+  };
+};
 
 const Message = ({
   message,
@@ -34,6 +46,7 @@ const Message = ({
         <Header
           author={message.author}
           created={message.created}
+          isOwn={isOwn}
         />
 
         {isEditing
@@ -43,7 +56,6 @@ const Message = ({
 
         {isOwn && (
           <Footer
-            // TODO: replace passing state props with state access
             isEditing={isEditing}
             messageId={message.id}
           />
@@ -51,17 +63,15 @@ const Message = ({
       </article>
 
       {message.replies?.map(reply => (
-        <Message
+        <ConnectedMessage
           key={reply.id}
           message={reply}
           isReply={true}
-          // TODO: replace passing state props with state access
-          isEditing={false}
-          isOwn={false}
         />
       ))}
     </>
   );
 };
 
-export default Message;
+const ConnectedMessage = connect(mapStateToProps)(Message)
+export default ConnectedMessage;

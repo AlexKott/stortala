@@ -5,9 +5,11 @@ import AuthorIcon from './AuthorIcon';
 import logo from 'assets/logo.png';
 import './header.css';
 
-// TODO: display logged in author
+type Props = {
+  user: Author | null
+}
 
-const Header = () => (
+const Header = ({ user }: Props) => (
   <header className='header'>
     <img
       alt='logo'
@@ -16,7 +18,13 @@ const Header = () => (
       width='100'
       src={logo}
     />
-    <AuthorIcon name='Alex' size={60} />
+    {user && (
+      <AuthorIcon
+        image={user.image}
+        name={user.name}
+        size={60}
+      />
+    )}
   </header>
 );
 

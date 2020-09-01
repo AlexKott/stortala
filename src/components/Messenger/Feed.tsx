@@ -20,12 +20,7 @@ const Feed = ({ messages }: PropsFromState) => (
   <ul className='feed'>
     {messages.map((message, index) => (
       <li key={message.id} className='feed--item'>
-        <Message
-          message={message}
-          // TODO: replace passing state props with state access
-          isOwn={index === 0}
-          isEditing={false}
-        />
+        <Message message={message} />
         <ReplyButton messageId={message.id} />
       </li>
     ))}
