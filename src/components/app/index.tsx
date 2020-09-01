@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Login from 'components/Login';
 import Messenger from 'components/Messenger';
 
 import Header from './Header';
@@ -7,7 +8,8 @@ import Header from './Header';
 const App = () => (
   <>
     <Header />
-    <Messenger />
+    <Login />
+    {/* <Messenger /> */}
   </>
 );
 

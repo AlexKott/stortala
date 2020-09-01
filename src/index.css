@@ -32,6 +32,7 @@ body {
   font-size: var(--size-text-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.47;
 
   background-color: var(--color-brand);
   color: var(--color-dark);
@@ -47,8 +48,16 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
+h1 {
+  font-size: var(--size-text-large);
+}
+
+h2 {
+  font-size: var(--size-text-regular);
+}
+
 p {
-  margin: 0;
+  margin: var(--size-gap) 0;
 }
 
 /*** ICONS from icomoon.io ***/

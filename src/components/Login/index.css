@@ -1,0 +1,19 @@
+.login {
+  width: 50vw;
+  min-width: var(--size-max-width);
+
+  margin: 0 auto;
+  padding-top: calc(var(--size-grid-base) * 6);
+}
+
+.login--intro,
+.login--authors {
+  margin-bottom: var(--size-grid-base);
+}
+
+.login--authors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
