@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './messageHeader.css';
+import './header.css';
 
 type Props = {
   author: Author
   created: number
 }
 
-const MessageHeader = ({
+const Header = ({
   author,
   created,
 }: Props) => (
@@ -20,4 +20,4 @@ const MessageHeader = ({
     </header>
   );
 
-export default MessageHeader;
+export default Header;

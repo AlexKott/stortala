@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './message.css';
-import MessageHeader from './MessageHeader';
-import MessageFooter from './MessageFooter';
+import Header from './Header';
+import Footer from './Footer';
+
+import './index.css';
 
 type OwnProps = {
   isReply?: boolean
@@ -20,13 +21,13 @@ const Message = ({
 }: OwnProps & PropsFromState) => (
     <>
       <article className={`message ${isReply ? 'is-reply' : ''}`}>
-        <MessageHeader
+        <Header
           author={message.author}
           created={message.created}
         />
         <p className='message--content'>{message.text}</p>
         {message.author.id === ownId && (
-          <MessageFooter messageId={message.id} />
+          <Footer messageId={message.id} />
         )}
       </article>
 

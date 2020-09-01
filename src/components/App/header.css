@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100vw;
+  height: calc(var(--size-grid-base) * 4);
+  padding: 0 calc(var(--size-grid-base) * 6);
+
+  background-color: var(--color-light);
+
+  border-bottom: var(--size-gap) solid var(--color-accent-dark);
+}
