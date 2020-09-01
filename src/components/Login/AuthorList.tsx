@@ -1,14 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import * as selectors from 'reducers/selectors';
 import AuthorIcon from 'components/App/AuthorIcon';
 
 import './authorList.css';
 
-type Props = {
+type PropsFromState = {
   authors: Author[]
 }
 
-const AuthorList = ({ authors }: Props) => (
+const mapStateToProps = (state: State): PropsFromState => ({
+  authors: selectors.getAuthorList(state),
+});
+
+const AuthorList = ({ authors }: PropsFromState) => (
   <ul className='author-list'>
     {authors.map(author => (
       <li key={author.id}>
@@ -24,4 +30,4 @@ const AuthorList = ({ authors }: Props) => (
   </ul>
 );
 
-export default AuthorList;
+export default connect(mapStateToProps)(AuthorList);

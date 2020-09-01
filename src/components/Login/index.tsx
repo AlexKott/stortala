@@ -5,20 +5,6 @@ import LoginForm from './LoginForm';
 
 import './index.css';
 
-// TODO: read users from local db / storage
-const authors: Author[] = [
-  {
-    id: 1,
-    name: 'Tom',
-    image: 'https://pbs.twimg.com/profile_images/757516655266238464/F7Xr_ain_400x400.jpg',
-  },
-  {
-    id: 2,
-    name: 'Bob',
-    image: 'https://pbs.twimg.com/profile_images/585982031567421440/kKsp_kIp_400x400.jpg',
-  },
-];
-
 const Login = () => (
   <section className='login'>
     <h1>Welcome!</h1>
@@ -28,7 +14,7 @@ const Login = () => (
     </section>
 
     <h2>If you already have an account</h2>
-    <AuthorList authors={authors} />
+    <AuthorList />
 
     <h2>If you're new here</h2>
     <LoginForm />

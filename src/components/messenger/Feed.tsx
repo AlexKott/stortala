@@ -1,16 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import * as selectors from 'reducers/selectors';
 
 import ReplyButton from 'components/Messenger/ReplyButton';
-
 import Message from './Message';
 
 import './feed.css';
 
-type Props = {
+type PropsFromState = {
   messages: DisplayMessage[]
 }
 
-const Feed = ({ messages }: Props) => (
+const mapSateToProps = (state: State): PropsFromState => ({
+  messages: selectors.getDisplayMessages(state),
+});
+
+const Feed = ({ messages }: PropsFromState) => (
   <ul className='feed'>
     {messages.map((message, index) => (
       <li key={message.id} className='feed--item'>
@@ -26,4 +32,4 @@ const Feed = ({ messages }: Props) => (
   </ul>
 );
 
-export default Feed;
+export default connect(mapSateToProps)(Feed);
