@@ -22,7 +22,14 @@ const initialState: MessagesState = {
   },
 };
 
-export default (state: MessagesState = initialState, action: any): MessagesState => {
+export default (state: MessagesState = initialState, action: MessageActionType): MessagesState => {
+  if (action.type === 'messages/DELETE') {
+    const stateCopy = { ...state };
+    delete stateCopy[action.messageId];
+
+    return stateCopy;
+  }
+
   return state;
 };
 

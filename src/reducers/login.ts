@@ -1,6 +1,9 @@
-const initialState: LoginState = 1;
+const initialState: LoginState = null;
 
-export default (state: LoginState = initialState, action: any) => {
+export default (state: LoginState = initialState, action: LoginActionType) => {
+  if (action.type === 'login/SET_USER') {
+    return action.userId;
+  }
   return state;
 };
 

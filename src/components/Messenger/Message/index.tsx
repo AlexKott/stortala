@@ -1,39 +1,51 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
+import * as actions from 'actions';
 import * as selectors from 'reducers/selectors';
 
 import Header from './Header';
 import Footer from './Footer';
 
 import './index.css';
+import { Dispatch } from 'redux';
 
 type OwnProps = {
   isReply?: boolean
   message: DisplayMessage
 }
-
 type PropsFromState = {
-  isEditing: boolean
   isOwn: boolean
+}
+type PropsFromDispatch = {
+  onDelete(): DeleteMessageAction
 }
 
 const mapStateToProps = (state: State, props: OwnProps): PropsFromState => {
   const user = selectors.getLoggedInUser(state);
 
   return {
-    isEditing: false,
     isOwn: user?.id === props.message.author.id,
   };
 };
 
+const mapDispatchToProps = (dispatch: Dispatch, props: OwnProps): PropsFromDispatch => ({
+  onDelete: () => dispatch(actions.deleteMessage(props.message.id)),
+});
+
 const Message = ({
   message,
-  isEditing,
   isOwn,
   isReply = false,
-}: OwnProps & PropsFromState) => {
+  onDelete,
+}: OwnProps & PropsFromState & PropsFromDispatch) => {
+
+  const [isEditing, setIsEditing] = useState(false);
+  const onToggleEdit = useCallback(() => {
+    // TODO: save after edit
+    setIsEditing(!isEditing);
+  }, [isEditing, setIsEditing]);
 
   const messageClassNames = classNames({
     'is-reply': isReply,
@@ -57,7 +69,8 @@ const Message = ({
         {isOwn && (
           <Footer
             isEditing={isEditing}
-            messageId={message.id}
+            onDelete={onDelete}
+            onToggleEdit={onToggleEdit}
           />
         )}
       </article>
@@ -73,5 +86,5 @@ const Message = ({
   );
 };
 
-const ConnectedMessage = connect(mapStateToProps)(Message)
+const ConnectedMessage = connect(mapStateToProps, mapDispatchToProps)(Message)
 export default ConnectedMessage;
