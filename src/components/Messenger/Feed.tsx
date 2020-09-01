@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReplyButton from 'components/Messenger/ReplyButton';
+
 import Message from './Message';
 
 import './feed.css';
@@ -16,8 +18,9 @@ const Feed = ({ messages }: Props) => (
           message={message}
           // TODO: replace passing state props with state access
           isOwn={index === 0}
-          isEditing={index === 0}
+          isEditing={false}
         />
+        <ReplyButton messageId={message.id} />
       </li>
     ))}
   </ul>

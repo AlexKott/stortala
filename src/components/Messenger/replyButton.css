@@ -1,0 +1,30 @@
+.reply-button {
+  position: absolute;
+  left: 50%;
+  bottom: calc(
+    (var(--size-grid-base) * -2)
+    + (3 * var(--size-gap))
+  );
+  transform: translateX(-50%);
+
+  width: calc(var(--size-grid-base) * 2);
+  height: calc(var(--size-grid-base) * 2);
+  padding: 0;
+
+  background-color: var(--color-brand);
+
+  border: var(--size-border-width) solid var(--color-light);
+  border-radius: 50%;
+
+  color: var(--color-light);
+  font-size: var(--size-text-regular);
+
+  cursor: pointer;
+}
+
+.reply-button:hover,
+.reply-button:focus {
+  background-color: var(--color-light);
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}

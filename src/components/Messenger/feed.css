@@ -8,6 +8,10 @@
   list-style-type: none;
 }
 
+.feed--item {
+  position: relative;
+}
+
 .feed--item:not(:last-child) {
-  margin-bottom: var(--size-grid-base);
+  margin-bottom: calc(var(--size-grid-base) * 2);
 }
