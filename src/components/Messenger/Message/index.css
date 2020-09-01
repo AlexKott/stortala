@@ -4,15 +4,33 @@
   border-radius: var(--size-border-radius);
 }
 
+.message.is-editing {
+  border-color: var(--color-brand);
+}
+
 .message.is-reply {
   border-top: 0;
   margin-left: calc(var(--size-grid-base) * 3);
   margin-top: -2px;
 }
 
-.message--content {
+.message--content,
+.message--content-editor {
   padding: var(--size-grid-base);
   padding-left: calc(var(--size-grid-base) * 2);
 
   background-color: var(--color-light);
+}
+
+.message--content-editor {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+  resize: none;
+}
+
+.message--content-editor:focus {
+  outline: none;
 }

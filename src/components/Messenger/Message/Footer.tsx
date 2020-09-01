@@ -3,13 +3,24 @@ import React from 'react';
 import './footer.css';
 
 type Props = {
+  isEditing: boolean
   messageId: number
 }
 
-const Footer = ({ messageId }: Props) => (
+const Footer = ({ isEditing, messageId }: Props) => (
   <footer className='message-footer'>
-    <button className='message-footer--button'>e</button>
-    <button className='message-footer--button'>d</button>
+
+    <button className='message-footer--button'>
+      {isEditing
+        ? <span className="icon-check" />
+        : <span className="icon-pencil" />
+      }
+    </button>
+
+    <button className='message-footer--button'>
+      <span className="icon-bin" />
+    </button>
+
   </footer>
 );
 

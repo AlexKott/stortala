@@ -1,3 +1,5 @@
+/*** VARIABLES ***/
+
 :root {
   --color-brand: rgb(255, 94, 41);
   --color-light: rgb(255, 255, 255);
@@ -16,6 +18,8 @@
   --size-border-radius: 4px;
 }
 
+/*** RESETS AND DEFAULTS ***/
+
 * {
   box-sizing: border-box;
 }
@@ -31,7 +35,7 @@ body {
 
   background-color: var(--color-brand);
   color: var(--color-dark);
-  background-image: url(./images/bubble.svg);
+  background-image: url(./assets/bubble.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 150vh;
@@ -45,4 +49,33 @@ h1, h2, h3 {
 
 p {
   margin: 0;
+}
+
+/*** ICONS from icomoon.io ***/
+
+@font-face {
+  font-family: 'stortala';
+  src: url(./assets/stortala.ttf?cvhltw) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'stortala' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-bin:before {
+  content: "\e9ac";
+}
+.icon-check:before {
+  content: "\ea11";
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -11,23 +12,41 @@ type OwnProps = {
 }
 
 type PropsFromState = {
-  ownId: number
+  isEditing: boolean
+  isOwn: boolean
 }
 
 const Message = ({
   message,
-  ownId,
+  isEditing,
+  isOwn,
   isReply = false,
-}: OwnProps & PropsFromState) => (
+}: OwnProps & PropsFromState) => {
+
+  const messageClassNames = classNames({
+    'is-reply': isReply,
+    'is-editing': isEditing,
+  });
+
+  return (
     <>
-      <article className={`message ${isReply ? 'is-reply' : ''}`}>
+      <article className={`message ${messageClassNames}`}>
         <Header
           author={message.author}
           created={message.created}
         />
-        <p className='message--content'>{message.text}</p>
-        {message.author.id === ownId && (
-          <Footer messageId={message.id} />
+
+        {isEditing
+          ? <textarea className='message--content-editor'>{message.text}</textarea>
+          : <p className='message--content'>{message.text}</p>
+        }
+
+        {isOwn && (
+          <Footer
+            // TODO: replace passing state props with state access
+            isEditing={isEditing}
+            messageId={message.id}
+          />
         )}
       </article>
 
@@ -36,11 +55,13 @@ const Message = ({
           key={reply.id}
           message={reply}
           isReply={true}
-          // TODO: replace passing ownId with state access
-          ownId={ownId}
+          // TODO: replace passing state props with state access
+          isEditing={false}
+          isOwn={false}
         />
       ))}
     </>
   );
+};
 
 export default Message;

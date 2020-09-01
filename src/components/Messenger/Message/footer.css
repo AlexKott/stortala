@@ -10,6 +10,7 @@
   display: block;
   width: calc(var(--size-grid-base) + var(--size-gap) * 2);
   height: calc(var(--size-grid-base) + var(--size-gap) * 2);
+  padding: 0;
 
   background-color: var(--color-brand);
 
@@ -19,6 +20,14 @@
   outline: 0;
 
   color: var(--color-light);
+  cursor: pointer;
+}
+
+.message-footer--button:hover,
+.message-footer--button:focus {
+  background-color: var(--color-light);
+  border-color: var(--color-brand);
+  color: var(--color-brand);
 }
 
 .message-footer--button:not(:last-child) {

@@ -10,12 +10,13 @@ type Props = {
 
 const Feed = ({ messages }: Props) => (
   <ul className='feed'>
-    {messages.map(message => (
+    {messages.map((message, index) => (
       <li key={message.id} className='feed--item'>
         <Message
           message={message}
-          // TODO: replace passing ownId with state access
-          ownId={2}
+          // TODO: replace passing state props with state access
+          isOwn={index === 0}
+          isEditing={index === 0}
         />
       </li>
     ))}
