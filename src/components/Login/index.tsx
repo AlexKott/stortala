@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AuthorButton from './AuthorButton';
+import AuthorList from './AuthorList';
 import LoginForm from './LoginForm';
 
 import './index.css';
@@ -28,13 +28,7 @@ const Login = () => (
     </section>
 
     <h2>If you already have an account</h2>
-    <ul className='login--authors'>
-      {authors.map(author => (
-        <li key={author.id}>
-          <AuthorButton {...author} />
-        </li>
-      ))}
-    </ul>
+    <AuthorList authors={authors} />
 
     <h2>If you're new here</h2>
     <LoginForm />

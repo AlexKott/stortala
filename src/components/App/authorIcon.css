@@ -1,0 +1,30 @@
+.author-icon {
+  position: relative;
+  border: var(--size-border-width) solid var(--color-light);
+  border-radius: 50%;
+
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-accent-light);
+
+  overflow: hidden;
+}
+
+button:hover>.author-icon,
+button:focus>.author-icon {
+  border-color: var(--color-brand);
+}
+
+.author-icon--text {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: var(--size-text-gigantic);
+  font-weight: 700;
+  letter-spacing: -6px;
+
+  color: var(--color-light-alt);
+}

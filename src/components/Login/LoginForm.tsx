@@ -15,7 +15,7 @@ const LoginForm = () => (
       className='login-form--button'
       type='submit'
     >
-      create
+      {texts.create}
     </button>
   </form>
 );

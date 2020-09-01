@@ -1,7 +1,7 @@
 declare type Author = {
   id: number
   name: string
-  image: string
+  image?: string
 }
 
 declare type Message = {

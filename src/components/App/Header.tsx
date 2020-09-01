@@ -1,5 +1,7 @@
 import React from 'react';
 
+import AuthorIcon from './AuthorIcon';
+
 import logo from 'assets/logo.png';
 import './header.css';
 
@@ -14,6 +16,7 @@ const Header = () => (
       width='100'
       src={logo}
     />
+    <AuthorIcon name='Alex' size={60} />
   </header>
 );
 

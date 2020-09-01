@@ -13,16 +13,9 @@
   font-size: var(--size-text-small);
 }
 
-.message-header--author {
+.message-header>.author-icon {
   position: absolute;
   top: calc(var(--size-gap) * -3);
   left: calc(var(--size-gap) * -3);
-  width: calc(var(--size-grid-base) * 3);
-  height: calc(var(--size-grid-base) * 3);
   margin-right: var(--size-gap);
-  border-radius: 50%;
-  border: var(--size-border-width) solid var(--color-light);
-  background-size: cover;
-  background-position: center;
-  background-color: var(--color-accent-light);
 }

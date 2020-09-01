@@ -6,14 +6,6 @@
   padding-top: calc(var(--size-grid-base) * 6);
 }
 
-.login--intro,
-.login--authors {
+.login--intro {
   margin-bottom: var(--size-grid-base);
-}
-
-.login--authors {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
 }
