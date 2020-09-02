@@ -13,11 +13,8 @@ const Login = () => (
       <p>Our innovative passwordless login uses a modern machine-learning AI mindcontrolling blockchain technology and PHP to ensure no unauthorised authors can access your account.</p>
     </section>
 
-    <h2>If you already have an account</h2>
-    <AuthorList />
-
-    <h2>If you're new here</h2>
     <LoginForm />
+    <AuthorList />
   </section>
 );
 

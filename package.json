@@ -15,6 +15,7 @@
     "@types/reselect": "^2.2.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
+    "miragejs": "^0.1.40",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",

@@ -1,3 +1,5 @@
+/*** MODELS ***/
+
 declare type Author = {
   id: number
   name: string
@@ -18,4 +20,16 @@ declare type DisplayMessage = {
   author: Author
   text: string
   replies?: DisplayMessage[]
+}
+
+/*** REQUESTS ***/
+
+declare type RequestEntity = 'authors' | 'messages'
+declare type RequestMethod = 'post' | 'get' | 'put' | 'patch' | 'delete'
+declare type RequestConfig = {
+  headers: {
+    [key: string]: string
+  }
+  method: RequestMethod
+  body?: string
 }

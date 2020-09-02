@@ -1,28 +1,28 @@
-const initialState: AuthorsState = {
-  1: {
-    id: 1,
-    name: 'Tom',
-    image: 'https://pbs.twimg.com/profile_images/757516655266238464/F7Xr_ain_400x400.jpg',
-  },
-  2: {
-    id: 2,
-    name: 'Bob',
-    image: 'https://pbs.twimg.com/profile_images/585982031567421440/kKsp_kIp_400x400.jpg',
-  },
-};
+const initialState: AuthorsState = {};
 
 export default (state: AuthorsState = initialState, action: AuthorActionType): AuthorsState => {
 
-  if (action.type === 'authors/ADD') {
-    return {
-      ...state,
-      [action.payload.author.id]: {
-        ...action.payload.author,
-      },
-    };
-  }
+  switch (action.type) {
+    case 'app/INIT': {
+      return action.payload.authors?.reduce(
+        (newState: AuthorsState, author: Author) => ({
+          ...newState,
+          [author.id]: author,
+        }), {}) || {};
+    }
 
-  return state;
+    case 'authors/ADD': {
+      return {
+        ...state,
+        [action.payload.author.id]: {
+          ...action.payload.author,
+        },
+      };
+    }
+
+    default:
+      return state;
+  };
 };
 
 export const getAuthors = (state: State): AuthorsState => state.authors;

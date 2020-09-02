@@ -1,7 +1,7 @@
 .login-form {
   display: flex;
 
-  margin-top: var(--size-grid-base);
+  margin: var(--size-grid-base) 0;
 }
 
 .login-form--input {

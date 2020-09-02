@@ -28,20 +28,24 @@ const LoginForm = ({ onCreate }: PropsFromDispatch) => {
   }, [name, onCreate]);
 
   return (
-    <form className='login-form' onSubmit={onSubmit}>
-      <input
-        className='login-form--input'
-        placeholder={texts.loginPlaceholder}
-        type='text'
-        onChange={onChangeInput}
-      />
-      <button
-        className='login-form--button'
-        type='submit'
-      >
-        {texts.create}
-      </button>
-    </form>
+    <>
+      <h2>If you're new here</h2>
+
+      <form className='login-form' onSubmit={onSubmit}>
+        <input
+          className='login-form--input'
+          placeholder={texts.loginPlaceholder}
+          type='text'
+          onChange={onChangeInput}
+        />
+        <button
+          className='login-form--button'
+          type='submit'
+        >
+          {texts.create}
+        </button>
+      </form>
+    </>
   );
 };
 

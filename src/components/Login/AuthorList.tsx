@@ -23,21 +23,26 @@ const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
   onLogin: (authorId: number) => dispatch(actions.loginAuthor(authorId)),
 });
 
-const AuthorList = ({ authors, onLogin }: PropsFromState & PropsFromDispatch) => (
-  <ul className='author-list'>
-    {authors.map(author => (
-      <li key={author.id}>
-        <button
-          type='button'
-          className='author-list--button'
-          onClick={() => onLogin(author.id)}
-        >
-          <AuthorIcon image={author.image} name={author.name} />
-          {author.name}
-        </button>
-      </li>
-    ))}
-  </ul>
-);
+const AuthorList = ({ authors, onLogin }: PropsFromState & PropsFromDispatch) =>
+  authors.length > 0 ? (
+    <>
+      <h2>If you already have an account</h2>
+
+      <ul className='author-list'>
+        {authors.map(author => (
+          <li key={author.id}>
+            <button
+              type='button'
+              className='author-list--button'
+              onClick={() => onLogin(author.id)}
+            >
+              <AuthorIcon image={author.image} name={author.name} />
+              {author.name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : null;
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthorList);

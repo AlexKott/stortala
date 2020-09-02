@@ -1,3 +1,11 @@
+declare type InitAction = {
+  type: 'app/INIT'
+  payload: {
+    authors?: Author[]
+    messages?: Message[]
+  }
+}
+
 /*** AUTHORS ***/
 declare type LoginAuthorAction = {
   type: 'authors/LOGIN'
@@ -24,6 +32,7 @@ declare type AuthorActionType =
   LoginAuthorAction
   | CreateAuthorAction
   | AddAuthorAction
+  | InitAction
 
 /*** MESSAGES ***/
 
@@ -63,3 +72,4 @@ declare type MessageActionType =
   | AddMessageAction
   | UpdateMessageAction
   | DeleteMessageAction
+  | InitAction
