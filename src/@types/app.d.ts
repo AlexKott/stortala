@@ -25,7 +25,7 @@ declare type DisplayMessage = {
 /*** REQUESTS ***/
 
 declare type RequestEntity = 'authors' | 'messages'
-declare type RequestMethod = 'post' | 'get' | 'put' | 'patch' | 'delete'
+declare type RequestMethod = 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE'
 declare type RequestConfig = {
   headers: {
     [key: string]: string

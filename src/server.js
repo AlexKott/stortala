@@ -65,21 +65,21 @@ export default (useSeeds = false) => {
         });
 
         server.create('message', {
-          created: 1598957195445,
-          text: 'A message',
+          created: 1598646015445,
+          text: 'What\'s he building in there?',
           authorId: 1,
           parentId: null,
         });
         server.create('message', {
-          created: 1598736185445,
-          text: 'A different message with a much longer and more interesting text that is actually wrapping lines',
+          created: 1598757195445,
+          text: 'A playhouse for the children?',
           authorId: 2,
-          parentId: null,
+          parentId: 1,
         });
         server.create('message', {
-          created: 1598957015445,
-          text: 'An answer',
-          authorId: 2,
+          created: 1598957295445,
+          text: 'You won\'t believe what Mr. Sticha saw',
+          authorId: 1,
           parentId: 1,
         });
       }

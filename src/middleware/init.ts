@@ -7,8 +7,8 @@ const middleware: Middleware = store => next => async (action: InitAction, reque
   if (action.type === 'app/INIT') {
     try {
       const responses = await Promise.all([
-        request('authors', 'get'),
-        request('messages', 'get'),
+        request('authors', 'GET'),
+        request('messages', 'GET'),
       ]);
       action.payload.authors = responses[0].authors;
       action.payload.messages = responses[1].messages;

@@ -11,7 +11,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
         parentId: action.payload.parentId,
         text: action.payload.text,
       };
-      const response = await request('messages', 'post', requestPayload);
+      const response = await request('messages', 'POST', requestPayload);
 
       store.dispatch(actions.addMessage(response.message));
 
@@ -22,7 +22,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
 
   if (action.type === 'messages/DELETE') {
     try {
-      await request('messages', 'delete', undefined, action.payload.messageId);
+      await request('messages', 'DELETE', undefined, action.payload.messageId);
     } catch (error) {
       console.error(error);
     }
@@ -34,7 +34,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
         text: action.payload.text,
       };
 
-      await request('messages', 'patch', requestPayload, action.payload.messageId);
+      await request('messages', 'PUT', requestPayload, action.payload.messageId);
     } catch (error) {
       console.error(error);
     }

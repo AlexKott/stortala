@@ -6,7 +6,7 @@ import * as actions from 'actions';
 const middleware: Middleware = store => next => async (action: AuthorActionType, request = httpRequest) => {
   if (action.type === 'authors/CREATE') {
     try {
-      const response = await request('authors', 'post', { name: action.payload.name });
+      const response = await request('authors', 'POST', { name: action.payload.name });
       store.dispatch(actions.addAuthor(response.author));
 
     } catch (error) {

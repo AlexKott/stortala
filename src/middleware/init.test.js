@@ -28,7 +28,7 @@ describe('middleware/init', () => {
 
       await middleware(store)(next)(action, request);
 
-      expect(request).toBeCalledWith('authors', 'get');
+      expect(request).toBeCalledWith('authors', 'GET');
     });
 
     it('should append the authors to the payload', async () => {
@@ -47,7 +47,7 @@ describe('middleware/init', () => {
 
       await middleware(store)(next)(action, request);
 
-      expect(request).toBeCalledWith('messages', 'get');
+      expect(request).toBeCalledWith('messages', 'GET');
     });
 
     it('should append the messages to the payload', async () => {
