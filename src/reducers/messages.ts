@@ -23,6 +23,7 @@ const initialState: MessagesState = {
 };
 
 export default (state: MessagesState = initialState, action: MessageActionType): MessagesState => {
+
   switch (action.type) {
     case 'messages/DELETE': {
       const stateCopy = { ...state };

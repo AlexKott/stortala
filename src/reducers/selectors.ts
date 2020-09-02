@@ -33,7 +33,7 @@ export const getDisplayMessages = createSelector(
       .sort(utils.sortByCreation(false));
   });
 
-export const getLoggedInUser = createSelector(
+export const getLoggedInAuthor = createSelector(
   [
     getLogin,
     getAuthors,

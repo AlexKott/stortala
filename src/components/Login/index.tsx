@@ -10,7 +10,7 @@ const Login = () => (
     <h1>Welcome!</h1>
     <section className='login--intro'>
       <p>To start using our messenger please select your account from the list of existing authors or create a new one by entering your name.</p>
-      <p>Our innovative passwordless login uses a modern machine-learning AI mindcontrolling blockchain technology and PHP to ensure no unauthorised users can access your account.</p>
+      <p>Our innovative passwordless login uses a modern machine-learning AI mindcontrolling blockchain technology and PHP to ensure no unauthorised authors can access your account.</p>
     </section>
 
     <h2>If you already have an account</h2>

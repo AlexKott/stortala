@@ -12,7 +12,7 @@ type PropsFromState = {
   authors: Author[]
 }
 type PropsFromDispatch = {
-  onLogin(userId: number): SetUserAction
+  onLogin(authorId: number): LoginAuthorAction
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
@@ -20,7 +20,7 @@ const mapStateToProps = (state: State): PropsFromState => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
-  onLogin: (userId: number) => dispatch(actions.setUser(userId)),
+  onLogin: (authorId: number) => dispatch(actions.loginAuthor(authorId)),
 });
 
 const AuthorList = ({ authors, onLogin }: PropsFromState & PropsFromDispatch) => (

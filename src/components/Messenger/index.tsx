@@ -9,16 +9,16 @@ import Feed from './Feed';
 import './index.css';
 
 type PropsFromState = {
-  userId: number
+  authorId: number
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
-  userId: selectors.getLoggedInUser(state)?.id || 0,
+  authorId: selectors.getLoggedInAuthor(state)?.id || 0,
 })
 
-const Messenger = ({ userId }: PropsFromState) => (
+const Messenger = ({ authorId }: PropsFromState) => (
   <section className='messenger'>
-    <Composer userId={userId} />
+    <Composer authorId={authorId} />
     <Feed />
   </section>
 );

@@ -6,10 +6,10 @@ import logo from 'assets/logo.png';
 import './header.css';
 
 type Props = {
-  user: Author | null
+  author: Author | null
 }
 
-const Header = ({ user }: Props) => (
+const Header = ({ author }: Props) => (
   <header className='header'>
     <img
       alt='logo'
@@ -18,10 +18,10 @@ const Header = ({ user }: Props) => (
       width='100'
       src={logo}
     />
-    {user && (
+    {author && (
       <AuthorIcon
-        image={user.image}
-        name={user.name}
+        image={author.image}
+        name={author.name}
         size={60}
       />
     )}

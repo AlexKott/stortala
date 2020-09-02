@@ -1,12 +1,29 @@
-/*** LOGIN ***/
-declare type SetUserAction = {
-  type: 'login/SET_USER'
+/*** AUTHORS ***/
+declare type LoginAuthorAction = {
+  type: 'authors/LOGIN'
   payload: {
-    userId: number
+    authorId: number
   }
 }
 
-declare type LoginActionType = SetUserAction
+declare type CreateAuthorAction = {
+  type: 'authors/CREATE'
+  payload: {
+    name: string
+  }
+}
+
+declare type AddAuthorAction = {
+  type: 'authors/ADD'
+  payload: {
+    author: Author
+  }
+}
+
+declare type AuthorActionType =
+  LoginAuthorAction
+  | CreateAuthorAction
+  | AddAuthorAction
 
 /*** MESSAGES ***/
 
@@ -26,6 +43,14 @@ declare type AddMessageAction = {
   }
 }
 
+declare type UpdateMessageAction = {
+  type: 'messages/UPDATE'
+  payload: {
+    messageId: number
+    text: string
+  }
+}
+
 declare type DeleteMessageAction = {
   type: 'messages/DELETE'
   payload: {
@@ -36,4 +61,5 @@ declare type DeleteMessageAction = {
 declare type MessageActionType =
   CreateMessageAction
   | AddMessageAction
+  | UpdateMessageAction
   | DeleteMessageAction

@@ -23,10 +23,10 @@ type PropsFromDispatch = {
 }
 
 const mapStateToProps = (state: State, props: OwnProps): PropsFromState => {
-  const user = selectors.getLoggedInUser(state);
+  const author = selectors.getLoggedInAuthor(state);
 
   return {
-    isOwn: user?.id === props.message.author.id,
+    isOwn: author?.id === props.message.author.id,
   };
 };
 

@@ -11,7 +11,17 @@ const initialState: AuthorsState = {
   },
 };
 
-export default (state: AuthorsState = initialState, action: any): AuthorsState => {
+export default (state: AuthorsState = initialState, action: AuthorActionType): AuthorsState => {
+
+  if (action.type === 'authors/ADD') {
+    return {
+      ...state,
+      [action.payload.author.id]: {
+        ...action.payload.author,
+      },
+    };
+  }
+
   return state;
 };
 

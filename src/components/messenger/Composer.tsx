@@ -1,44 +1,39 @@
-import React, {
-  useCallback,
-  useState,
-  ChangeEvent,
-  MouseEvent
-} from 'react';
+import React, { useCallback, useState, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import * as actions from 'actions';
-
 import { forms as texts } from 'constants/texts';
 
 import './composer.css';
 
 type OwnProps = {
-  userId: number
+  authorId: number
 }
 type PropsFromDispatch = {
   onCreate(text: string): CreateMessageAction
 }
 
 const mapDispatchToProps = (dispatch: Dispatch, props: OwnProps): PropsFromDispatch => ({
-  onCreate: (text: string) => dispatch(actions.createMessage(props.userId, null, text)),
+  onCreate: (text: string) => dispatch(actions.createMessage(props.authorId, null, text)),
 });
 
 const Composer = ({ onCreate }: OwnProps & PropsFromDispatch) => {
   const [text, setText] = useState('');
-  const onChangeText = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
-    e.preventDefault();
-    setText(e.target.value);
-  }, [setText]);
-  const onSubmit = useCallback((e: MouseEvent) => {
-    e.preventDefault();
 
+  const onChangeText = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
+    e.preventDefault();
+    setText(e.currentTarget.value);
+  }, [setText]);
+
+  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     onCreate(text);
     setText('');
   }, [text, setText, onCreate])
 
   return (
-    <form className='composer'>
+    <form className='composer' onSubmit={onSubmit}>
       <textarea
         className='composer--input'
         placeholder={texts.messagePlaceholder}
@@ -47,8 +42,7 @@ const Composer = ({ onCreate }: OwnProps & PropsFromDispatch) => {
       />
       <button
         className='composer--button'
-        type='button'
-        onClick={onSubmit}
+        type='submit'
       >
         {texts.submit}
       </button>

@@ -1,9 +1,15 @@
 const initialState: LoginState = null;
 
-export default (state: LoginState = initialState, action: LoginActionType) => {
-  if (action.type === 'login/SET_USER') {
-    return action.payload.userId;
+export default (state: LoginState = initialState, action: AuthorActionType) => {
+
+  if (action.type === 'authors/LOGIN') {
+    return action.payload.authorId;
   }
+
+  if (action.type === 'authors/ADD') {
+    return action.payload.author.id;
+  }
+
   return state;
 };
 

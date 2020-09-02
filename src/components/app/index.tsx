@@ -9,17 +9,17 @@ import Messenger from 'components/Messenger';
 import Header from './Header';
 
 type PropsFromState = {
-  user: Author | null
+  author: Author | null
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
-  user: selectors.getLoggedInUser(state),
+  author: selectors.getLoggedInAuthor(state),
 });
 
-const App = ({ user }: PropsFromState) => (
+const App = ({ author }: PropsFromState) => (
   <>
-    <Header user={user} />
-    {user
+    <Header author={author} />
+    {author
       ? <Messenger />
       : <Login />
     }
