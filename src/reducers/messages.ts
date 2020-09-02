@@ -41,6 +41,16 @@ export default (state: MessagesState = initialState, action: MessageActionType):
       };
     }
 
+    case 'messages/UPDATE': {
+      return {
+        ...state,
+        [action.payload.messageId]: {
+          ...state[action.payload.messageId],
+          text: action.payload.text,
+        },
+      };
+    }
+
     default:
       return state;
   }

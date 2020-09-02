@@ -9,19 +9,24 @@ import Message from './Message';
 import './feed.css';
 
 type PropsFromState = {
+  authorId: number
   messages: DisplayMessage[]
 }
 
 const mapSateToProps = (state: State): PropsFromState => ({
+  authorId: selectors.getLoggedInAuthor(state)?.id || 0,
   messages: selectors.getDisplayMessages(state),
 });
 
-const Feed = ({ messages }: PropsFromState) => (
+const Feed = ({ authorId, messages }: PropsFromState) => (
   <ul className='feed'>
     {messages.map((message, index) => (
       <li key={message.id} className='feed--item'>
         <Message message={message} />
-        <ReplyButton messageId={message.id} />
+        <ReplyButton
+          authorId={authorId}
+          messageId={message.id}
+        />
       </li>
     ))}
   </ul>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, FormEvent } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
@@ -20,6 +20,7 @@ type PropsFromState = {
 }
 type PropsFromDispatch = {
   onDelete(): DeleteMessageAction
+  onSave(text: string): UpdateMessageAction
 }
 
 const mapStateToProps = (state: State, props: OwnProps): PropsFromState => {
@@ -32,6 +33,7 @@ const mapStateToProps = (state: State, props: OwnProps): PropsFromState => {
 
 const mapDispatchToProps = (dispatch: Dispatch, props: OwnProps): PropsFromDispatch => ({
   onDelete: () => dispatch(actions.deleteMessage(props.message.id)),
+  onSave: (text: string) => dispatch(actions.updateMessage(props.message.id, text)),
 });
 
 const Message = ({
@@ -39,13 +41,23 @@ const Message = ({
   isOwn,
   isReply = false,
   onDelete,
+  onSave,
 }: OwnProps & PropsFromState & PropsFromDispatch) => {
 
   const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(message.text);
+
   const onToggleEdit = useCallback(() => {
-    // TODO: save after edit
+    if (isEditing) {
+      onSave(newText);
+    }
+
     setIsEditing(!isEditing);
-  }, [isEditing, setIsEditing]);
+  }, [isEditing, newText, setIsEditing, onSave]);
+
+  const onChangeText = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
+    setNewText(e.currentTarget.value);
+  }, [setNewText]);
 
   const messageClassNames = classNames({
     'is-reply': isReply,
@@ -62,7 +74,11 @@ const Message = ({
         />
 
         {isEditing
-          ? <textarea className='message--content-editor'>{message.text}</textarea>
+          ? <textarea
+            className='message--content-editor'
+            value={newText}
+            onChange={onChangeText}
+          />
           : <p className='message--content'>{message.text}</p>
         }
 

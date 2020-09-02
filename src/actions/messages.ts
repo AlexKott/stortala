@@ -5,13 +5,21 @@ export const createMessage =
       authorId,
       parentId,
       text,
-    }
+    },
   });
 
 export const addMessage = (message: Message): AddMessageAction => ({
   type: 'messages/ADD',
   payload: {
     message,
+  },
+});
+
+export const updateMessage = (messageId: number, text: string): UpdateMessageAction => ({
+  type: 'messages/UPDATE',
+  payload: {
+    messageId,
+    text,
   },
 });
 

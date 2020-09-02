@@ -4,3 +4,5 @@ export const forms = {
   submit: 'send',
   create: 'create',
 };
+
+export const newMessageText = 'Our thought-reading AutoCompose® framework encountered an error. Please edit this message to enter your text manually.';
