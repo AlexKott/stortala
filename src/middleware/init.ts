@@ -1,14 +1,14 @@
 import { Middleware } from 'redux';
 
-import sendRequest from 'adapters/http';
+import httpRequest from 'adapters/http';
 
-const middleware: Middleware = store => next => async (action: AuthorActionType | InitAction) => {
+const middleware: Middleware = store => next => async (action: InitAction, request = httpRequest) => {
 
   if (action.type === 'app/INIT') {
     try {
       const responses = await Promise.all([
-        sendRequest('authors', 'get'),
-        sendRequest('messages', 'get'),
+        request('authors', 'get'),
+        request('messages', 'get'),
       ]);
       action.payload.authors = responses[0].authors;
       action.payload.messages = responses[1].messages;

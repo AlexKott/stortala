@@ -1,9 +1,9 @@
 import { Middleware } from 'redux';
 
-import sendRequest from 'adapters/http';
+import httpRequest from 'adapters/http';
 import * as actions from 'actions';
 
-const middleware: Middleware = store => next => async (action: MessageActionType) => {
+const middleware: Middleware = store => next => async (action: MessageActionType, request = httpRequest) => {
   if (action.type === 'messages/CREATE') {
     try {
       const requestPayload = {
@@ -11,7 +11,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
         parentId: action.payload.parentId,
         text: action.payload.text,
       };
-      const response = await sendRequest('messages', 'post', requestPayload);
+      const response = await request('messages', 'post', requestPayload);
 
       store.dispatch(actions.addMessage(response.message));
 
@@ -22,7 +22,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
 
   if (action.type === 'messages/DELETE') {
     try {
-      await sendRequest('messages', 'delete', undefined, action.payload.messageId);
+      await request('messages', 'delete', undefined, action.payload.messageId);
     } catch (error) {
       console.error(error);
     }
@@ -34,7 +34,7 @@ const middleware: Middleware = store => next => async (action: MessageActionType
         text: action.payload.text,
       };
 
-      await sendRequest('messages', 'patch', requestPayload, action.payload.messageId);
+      await request('messages', 'patch', requestPayload, action.payload.messageId);
     } catch (error) {
       console.error(error);
     }
