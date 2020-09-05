@@ -17,6 +17,7 @@
   --size-text-gigantic: 72px;
   --size-border-width: 2px;
   --size-border-radius: 4px;
+  --size-border-collapse: -3px;
 }
 
 /*** RESETS AND DEFAULTS ***/

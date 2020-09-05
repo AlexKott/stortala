@@ -11,7 +11,7 @@
 .message.is-reply {
   border-top: 0;
   margin-left: calc(var(--size-grid-base) * 3);
-  margin-top: -2px;
+  margin-top: var(--size-border-collapse);
 }
 
 .message--content,

@@ -9,16 +9,18 @@ import './composer.css';
 
 type OwnProps = {
   authorId: number
+  parentId?: number
+  onSend?(): void
 }
 type PropsFromDispatch = {
   onCreate(text: string): CreateMessageAction
 }
 
 const mapDispatchToProps = (dispatch: Dispatch, props: OwnProps): PropsFromDispatch => ({
-  onCreate: (text: string) => dispatch(actions.createMessage(props.authorId, null, text)),
+  onCreate: (text: string) => dispatch(actions.createMessage(props.authorId, props.parentId || null, text)),
 });
 
-const Composer = ({ onCreate }: OwnProps & PropsFromDispatch) => {
+const Composer = ({ onCreate, onSend }: OwnProps & PropsFromDispatch) => {
   const [text, setText] = useState('');
 
   const onChangeText = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
@@ -30,7 +32,11 @@ const Composer = ({ onCreate }: OwnProps & PropsFromDispatch) => {
     e.preventDefault();
     onCreate(text);
     setText('');
-  }, [text, setText, onCreate])
+
+    if (onSend != null) {
+      onSend();
+    }
+  }, [text, setText, onCreate, onSend])
 
   return (
     <form className='composer' onSubmit={onSubmit}>

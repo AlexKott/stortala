@@ -67,3 +67,14 @@
   cursor: pointer;
   outline: none;
 }
+
+.feed-item>.composer {
+  position: relative;
+  z-index: 1;
+
+  width: auto;
+
+  padding: 0;
+  margin-top: var(--size-border-collapse);
+  margin-left: calc(var(--size-grid-base) * 3);
+}

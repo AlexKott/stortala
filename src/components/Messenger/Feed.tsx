@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import * as selectors from 'reducers/selectors';
 
-import ReplyButton from 'components/Messenger/ReplyButton';
-import Message from './Message';
+import FeedItem from './FeedItem';
 
 import './feed.css';
 
@@ -20,14 +19,12 @@ const mapSateToProps = (state: State): PropsFromState => ({
 
 const Feed = ({ authorId, messages }: PropsFromState) => (
   <ul className='feed'>
-    {messages.map((message, index) => (
-      <li key={message.id} className='feed--item'>
-        <Message message={message} />
-        <ReplyButton
-          authorId={authorId}
-          messageId={message.id}
-        />
-      </li>
+    {messages.map(message => (
+      <FeedItem
+        key={`feed-item-${message.id}`}
+        authorId={authorId}
+        message={message}
+      />
     ))}
   </ul>
 );

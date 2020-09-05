@@ -1,4 +1,12 @@
-.reply-button {
+.feed-item {
+  position: relative;
+}
+
+.feed-item:not(:last-child) {
+  margin-bottom: calc(var(--size-grid-base) * 2);
+}
+
+.feed-item--reply {
   position: absolute;
   left: 50%;
   bottom: calc(
@@ -22,8 +30,8 @@
   cursor: pointer;
 }
 
-.reply-button:hover,
-.reply-button:focus {
+.feed-item--reply:hover,
+.feed-item--reply:focus {
   background-color: var(--color-light);
   border-color: var(--color-brand);
   color: var(--color-brand);
